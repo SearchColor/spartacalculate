@@ -1,3 +1,5 @@
+package lv2;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.function.BiFunction;
