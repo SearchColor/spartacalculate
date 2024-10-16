@@ -9,11 +9,11 @@ public class App {
         double firstN = 0;
         double secondN = 0;
         int a = 0;
-        while (a < 1) {
+        while (a < 1) { // 전체 계산 반복문 시작
             // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
             System.out.print("첫 번째 숫자를 입력하세요: ");
             String firstInput = sc.nextLine();
-            while (a < 1) {
+            while (a < 1) { //첫번째 숫자 입력 반복문 시작
                 if (isDouble(firstInput)) {
                     firstN = Double.parseDouble(firstInput);
                     calculator.setFirstNumber(firstN);
@@ -27,7 +27,7 @@ public class App {
             // 사칙연산 기호를 적합한 타입으로 선언한 변수에 저장합니다.
             String op = sc.nextLine();
             char operator = op.charAt(0);
-            while (a < 1) {
+            while (a < 1) { // 사칙연산 기호 입력 반복분 시작
                 if (operator == '+' || operator == '-' || operator == '*' || operator == '/') {
                     calculator.setOperator(operator);
                     break;
@@ -40,9 +40,9 @@ public class App {
             System.out.print("두 번째 숫자를 입력하세요: ");
             // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
             String secondInput = sc.nextLine();
-            while (a < 1) {
+            while (a < 1) { //두번째 숫자 입력 반복문 시작
                 if(operator == '/'){
-                    if (isDouble(secondInput) && !secondInput.equals("0")) {
+                    if (isDouble(secondInput) && !secondInput.equals("0")) { // 나누기 연산일때 부모자리에 0이 들어오지않게 처리
                         secondN = Double.parseDouble(secondInput);
                         calculator.setSecondNumber(secondN);
                         break;
@@ -54,7 +54,7 @@ public class App {
                         System.out.println("두 번째 숫자를 다시 입력하세요: ");
                         secondInput = sc.nextLine();
                     }
-                } else {
+                } else {    // 나누기 연산이 아닐때 두번째 숫자 입력처리
                     if (isDouble(secondInput)) {
                         secondN = Double.parseDouble(secondInput);
                         calculator.setSecondNumber(secondN);
@@ -72,7 +72,7 @@ public class App {
             System.out.println("계속 계산하시겠습니까? (n 입력시 종료) ");
             String conti = sc.nextLine();
 
-            if (conti.equals("n")) {
+            if (conti.equals("n")) { //전체 계산기 반복문 종료 처리
                 break;
             }
 
@@ -81,9 +81,7 @@ public class App {
             if(firstDatadel.equals("remove")){
                 calculator.removeResult();
             }
-            if (conti.equals("n")){
-                break;
-            }
+
         }
     }
     //입력받은 값이 숫자인지 파악하는 메서드
