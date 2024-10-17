@@ -91,8 +91,9 @@ public class App {
                 break;
             }
             System.out.println("저장된 결과값들과 비교할 숫자를 입력하세요. ");
-            double biggerNum = sc.nextDouble();
-            System.out.println(prioCalculator.priCalc(biggerNum));
+            String biggerN = sc.nextLine();
+            double biggerNum = Double.parseDouble(biggerN);
+            System.out.println("더 큰 숫자 : "+ prioCalculator.priCalc(biggerNum));
 
             System.out.println("가장 먼저 저장된 데이터를 삭제하시겠습니까? (remove 입력 시 삭제) ");
 
