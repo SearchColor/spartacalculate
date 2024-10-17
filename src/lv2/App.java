@@ -7,6 +7,16 @@ public class App {
 
         Calculator calculator = new Calculator();
 
+        //익명함수
+        PrioCalculator prioCalculator = new PrioCalculator() {
+            @Override
+            public double priCalc(double n) {
+                double priorityNum = calculator.prioPeek();
+                return Math.max(priorityNum, n);
+            }
+        };
+
+
         Scanner sc = new Scanner(System.in);
         double firstN = 0;
         double secondN = 0;
@@ -15,6 +25,9 @@ public class App {
 
         while (calculateRunning) { // 전체 계산 반복문 시작
             // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
+
+
+
             System.out.print("첫 번째 숫자를 입력하세요: ");
             String firstInput = sc.nextLine();
             while (intputRunning) { //첫번째 숫자 입력 반복문 시작
@@ -72,16 +85,19 @@ public class App {
             }
             System.out.println("연산 결과 : " + calculator.calculate());
             System.out.println("저장된 결과값 : " + calculator.saveResult() );
-
             System.out.println("계속 계산하시겠습니까? (n 입력시 종료) ");
             String conti = sc.nextLine();
-
             if (conti.equals("n")) { //전체 계산기 반복문 종료 처리
                 break;
             }
+            System.out.println("저장된 결과값들과 비교할 숫자를 입력하세요. ");
+            double biggerNum = sc.nextDouble();
+            System.out.println(prioCalculator.priCalc(biggerNum));
 
             System.out.println("가장 먼저 저장된 데이터를 삭제하시겠습니까? (remove 입력 시 삭제) ");
+
             String firstDatadel = sc.nextLine();
+
             if(firstDatadel.equals("remove")){
                 calculator.removeResult();
             }
@@ -98,4 +114,5 @@ public class App {
             return false;
         }
     }
+
 }
